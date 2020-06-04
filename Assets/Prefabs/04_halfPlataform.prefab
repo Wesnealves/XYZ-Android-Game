@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4040270135125698913, guid: 6b4b9870e4be5c34aae6bb5c498fc07a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4040270135125698913, guid: 6b4b9870e4be5c34aae6bb5c498fc07a,
         type: 3}
@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 4040270135125698913, guid: 6b4b9870e4be5c34aae6bb5c498fc07a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.291
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4040270135125698913, guid: 6b4b9870e4be5c34aae6bb5c498fc07a,
         type: 3}
@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 4040270135125698913, guid: 6b4b9870e4be5c34aae6bb5c498fc07a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.42
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4040270135125698919, guid: 6b4b9870e4be5c34aae6bb5c498fc07a,
         type: 3}
@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 4040270135125698939, guid: 6b4b9870e4be5c34aae6bb5c498fc07a,
         type: 3}
       propertyPath: m_Name
-      value: halfPlataform
+      value: 04_halfPlataform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b4b9870e4be5c34aae6bb5c498fc07a, type: 3}

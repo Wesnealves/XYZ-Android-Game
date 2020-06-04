@@ -40,7 +40,7 @@ PrefabInstance:
     - target: {fileID: 5045694241680777605, guid: 1f933efda10f6094fb6e7026147c8e56,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5045694241680777605, guid: 1f933efda10f6094fb6e7026147c8e56,
         type: 3}
@@ -95,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 5045694241680777631, guid: 1f933efda10f6094fb6e7026147c8e56,
         type: 3}
       propertyPath: m_Name
-      value: ObstaclePlataformZ
+      value: 03_ObstaclePlataformZ
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f933efda10f6094fb6e7026147c8e56, type: 3}

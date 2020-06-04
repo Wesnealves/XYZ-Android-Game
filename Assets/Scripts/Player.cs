@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 
         if (callJump == true || Input.GetKey(KeyCode.Space) && isGrounded == true && isMovingZ == false)
         {
-            playerRigidbody.AddForce(jumpDirectionX * jumpForce * Time.deltaTime,ForceMode.Impulse);
+            playerRigidbody.AddForce(jumpDirectionX * jumpForce * speedPlayer * Time.deltaTime, ForceMode.Impulse);
             callJump = false;
            
         }else if (callJump == true || Input.GetKey(KeyCode.Space)  && isGrounded == true && isMovingZ == true)
@@ -94,5 +94,12 @@ public class Player : MonoBehaviour
        
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("ImpulseX"))
+        {
+            this.playerRigidbody.AddForce(new Vector3(5,0,0) * jumpForce * Time.deltaTime,ForceMode.Impulse);
+        }
+    }
+
 }

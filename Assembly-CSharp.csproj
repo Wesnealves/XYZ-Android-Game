@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\GroundPlataform.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\SpawnPlataform.cs" />
+    <Compile Include="Assets\myParentPosition.cs" />
     <Reference Include="UnityEngine">
       <HintPath>F:/wes/2019.3.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
