@@ -1,18 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraFollow : MonoBehaviour
 {
     public GameObject target; // Define quem será o alvo da camera, no caso, o player.
-    private Vector3 distance; 
-
+    private Vector3 distance;
+    [SerializeField]
+    GameObject texto;
     void Start()
     {
         distance = this.transform.position - target.transform.position; // Armazena a distancia entre a camera e o player.
+        
+        
     }
     private void LateUpdate()
     {
-        this.transform.position = target.transform.position + distance; // Locomove a camera de acordo com a posicao do Player mantendo a mesma distancia.
+        if(target != null)
+        {
+            this.transform.position = target.transform.position + distance; // Locomove a camera de acordo com a posicao do Player mantendo a mesma distancia.
+        }
+        else
+        {
+            texto.SetActive(true);
+        }
+        
+
+        
     }
 }
+
+// Nota: Quando criar a classe UIManager, lembrar de instaciar a tela de morte através da classe e não pela Camera;

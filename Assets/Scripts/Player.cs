@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public bool isDead = false;
     public float speedPlayer = 1f; // Velocidade em que o player vai se mover.
     public bool isMovingZ = false; // Verifica se o jogador está se movendo no eixo Z. É uma variavel de controle.
     public float jumpForce = 50f; // Força do pulo definida com testes em gravidade do jogo em -10 ~ Na versão de Android aumentar para 100f ou até 250f.
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        
+        speedPlayer += 0.1f * Time.deltaTime;
         CheckGround();
         SwitchXZ();
         PlayerMove(); 

@@ -14,6 +14,7 @@ public class GroundPlataform : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        // Após o Player sair da aréa Trigger, a plaforma comeca a receber influencia da gravidade, e depois é destruida.
         if (other.gameObject.CompareTag("Player"))
         {
             thisRigid.isKinematic = false;
