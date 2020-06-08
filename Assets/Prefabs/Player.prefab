@@ -123,16 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e999a0dd2a0800b449ac2503ccba62d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
   speedPlayer: 1
-  isMovingZ: 0
-  jumpForce: 25
-  jumpDirectionX: {x: 0.3, y: 1.1, z: 0}
-  jumpDirectionZ: {x: 0, y: 1.1, z: 0.3}
-  notIgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  isGrounded: 0
-  isJumping: 0
-  canJump: 1
-  callJump: 0
+  jumpVelocity: 0
