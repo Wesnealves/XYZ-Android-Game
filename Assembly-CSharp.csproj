@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\DestroyPlayer.cs" />
     <Compile Include="Assets\Scripts\GroundPlataform.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PlayerAndroid.cs" />
     <Compile Include="Assets\Scripts\SpawnPlataform.cs" />
     <Compile Include="Assets\chargeMaterial.cs" />
     <Compile Include="Assets\pressButton.cs" />

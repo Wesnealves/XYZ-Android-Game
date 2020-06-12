@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - DestroyPlayer
     - GroundPlataform
     - Player
+    - PlayerAndroid
     - SpawnPlataform
     - chargeMaterial
     Unity.2D.Tilemap.Editor.dll:
@@ -18,8 +19,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -32,6 +35,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Outline
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/_Scenes/SampleScene.unity:
@@ -61,8 +65,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -84,21 +86,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12260}
     - Class: 114
-      Script: {instanceID: 12412}
+      Script: {instanceID: 12414}
     - Class: 114
-      Script: {instanceID: 12554}
+      Script: {instanceID: 12556}
     - Class: 114
-      Script: {instanceID: 12796}
+      Script: {instanceID: 12798}
     - Class: 114
-      Script: {instanceID: 12966}
+      Script: {instanceID: 12968}
     - Class: 114
-      Script: {instanceID: 12982}
+      Script: {instanceID: 12984}
     - Class: 114
-      Script: {instanceID: 12986}
+      Script: {instanceID: 12988}
     - Class: 114
-      Script: {instanceID: 13186}
+      Script: {instanceID: 13190}
     - Class: 114
-      Script: {instanceID: 13400}
+      Script: {instanceID: 13336}
+    - Class: 114
+      Script: {instanceID: 13404}
+    - Class: 114
+      Script: {instanceID: 15524}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -414,6 +420,12 @@ ScriptsOnlyBuild:
     className: PostProcessResources
   - hash:
       serializedVersion: 2
+      Hash: e5cb1b18cebbace6c4a10fd46c17eae5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: pressButton
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -582,6 +594,12 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: touch
+  - hash:
+      serializedVersion: 2
       Hash: 00005d1f5a1bb92faa55102cd7b1ed81
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -702,16 +720,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: e5cb1b18cebbace6c4a10fd46c17eae5
+      Hash: 4f2a4dc8fc69df693ea87995b81ea987
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: pressButton
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: touch
+    className: PlayerAndroid
   platform: 13
   scenePathNames:
   - Assets/_Scenes/SampleScene.unity

@@ -34,47 +34,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        //PlayerMove();
+        PlayerMove();
         PlayerJump(); // Funcionou melhor em Update do que em Fixed Update;
-
-
-       
-
-
-        if (Input.touchCount > 0)
-        {
-            touch = Input.GetTouch(0);
-
-
-            // Move no eixo Z Direita && Esquerda
-            if(touch.phase == TouchPhase.Moved)
-            {
-                
-                if (touch.deltaPosition.x < 0)
-                {
-                    transform.Translate(new Vector3(0, 0, 1) * 0.5f * Time.deltaTime);
-                }else if (touch.deltaPosition.x > 0)
-                {
-                    transform.Translate(new Vector3(0, 0, -1) * 0.5f* Time.deltaTime);
-                }  
-
-                if(touch.deltaPosition.y > 0)
-                {
-                    PlayerJump();
-                }
-            }
-
-            // Duplo Tap && Jump
-
-            
-
-        }
-
-
-
     }
 
-    public void PlayerMove()
+    public void PlayerMove() // Movimento em eixous pelo teclado.
     {
         // Verificação de qual eixo irá se 'movimentar'.
         if (Input.GetKeyDown(KeyCode.X))
