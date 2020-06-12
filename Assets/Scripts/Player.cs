@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     public float speedPlayer;
     public float jumpVelocity;
 
+    // Android Inputs
+    public Touch touch;
+  
+
 
     private bool isMovingZ = false;
     private bool isMovingX = true;
@@ -24,13 +28,49 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+       
     }
     
 
     private void Update()
     {
-        PlayerMove();
+        //PlayerMove();
         PlayerJump(); // Funcionou melhor em Update do que em Fixed Update;
+
+
+       
+
+
+        if (Input.touchCount > 0)
+        {
+            touch = Input.GetTouch(0);
+
+
+            // Move no eixo Z Direita && Esquerda
+            if(touch.phase == TouchPhase.Moved)
+            {
+                
+                if (touch.deltaPosition.x < 0)
+                {
+                    transform.Translate(new Vector3(0, 0, 1) * 0.5f * Time.deltaTime);
+                }else if (touch.deltaPosition.x > 0)
+                {
+                    transform.Translate(new Vector3(0, 0, -1) * 0.5f* Time.deltaTime);
+                }  
+
+                if(touch.deltaPosition.y > 0)
+                {
+                    PlayerJump();
+                }
+            }
+
+            // Duplo Tap && Jump
+
+            
+
+        }
+
+
 
     }
 
@@ -59,25 +99,30 @@ public class Player : MonoBehaviour
 
     public void PlayerJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isMovingX && canJump)
+        if (Input.GetKeyDown(KeyCode.Space) || touch.deltaPosition.y > 0 && isMovingX && canJump)
         {
             // Pula no eixo X
             canJump = false;
             playerRigidbody.AddForce(new Vector3(jumpVelocity / 2, jumpVelocity, 0) * jumpVelocity);
+            touch.deltaPosition = new Vector2(0, 0);
             StartCoroutine(PlayerCanJump());
+            
 
-        }else if (Input.GetKeyDown(KeyCode.Space) && isMovingZ && canJump)
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) || touch.deltaPosition.y > 0 && isMovingZ && canJump)
         {
             // Pula no eixo Z
             canJump = false;
             playerRigidbody.AddForce(new Vector3(0, jumpVelocity, jumpVelocity / 2) * jumpVelocity);
+            touch.deltaPosition = new Vector2(0, 0);
             StartCoroutine(PlayerCanJump());
+            
         }
     }
 
     IEnumerator PlayerCanJump()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         canJump = true;
 
     }
