@@ -63,21 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\DestroyPlayer.cs" />
     <Compile Include="Assets\Scripts\GroundPlataform.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerAndroid.cs" />
     <Compile Include="Assets\Scripts\SpawnPlataform.cs" />
-    <Compile Include="Assets\chargeMaterial.cs" />
-    <Compile Include="Assets\pressButton.cs" />
-    <Compile Include="Assets\touch.cs" />
-    <None Include="Assets\EffectExamples\Misc Effects\Prefabs\Readme_Dissolve_Respawn_.txt" />
-    <None Include="Assets\EffectExamples\Magic Effects\Shaders\Ice.shader" />
-    <None Include="Assets\EffectExamples\Misc Effects\Shaders\Respawn.shader" />
-    <None Include="Assets\EffectExamples\Misc Effects\Shaders\FireFly.shader" />
-    <None Include="Assets\EffectExamples\Misc Effects\Shaders\Dissolve.shader" />
+    <Compile Include="Assets\Scripts\chargeMaterial.cs" />
     <Reference Include="UnityEngine">
       <HintPath>F:/wes/2019.3.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -609,6 +601,15 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>F:/wes/Unity Projects/XYZ - Android Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>F:/wes/Unity Projects/XYZ - Android Project/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>F:/wes/Unity Projects/XYZ - Android Project/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>F:/wes/Unity Projects/XYZ - Android Project/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProGrids.Editor">
       <HintPath>F:/wes/Unity Projects/XYZ - Android Project/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
@@ -638,6 +639,9 @@
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>F:/wes/Unity Projects/XYZ - Android Project/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>F:/wes/Unity Projects/XYZ - Android Project/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>F:/wes/Unity Projects/XYZ - Android Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

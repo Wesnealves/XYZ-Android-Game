@@ -13,28 +13,42 @@ public class PlayerAndroid : MonoBehaviour
     float speedPlayer = 0f;
     [SerializeField]
     private float forceJump = 0f;
-    bool canJump = true;
-    bool moveX = false;
+    bool canJump;
+    bool moveX;
     Touch touch;
     Rigidbody playerRigidbody;
-    void Start()
+
+    private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+
+    }
+    void Start()
+    {
+        canJump = true;
+        moveX = false;
     }
 
    
     void Update()
     {
-        PlayerAutoMove();
-        TouchMove();
+       PlayerAutoMove();
+       TouchMove();
     }
+
+
+
+
+
+
+
+    // ---------------------------------------------------------------------------------------------------------------------\
 
     // Movimento automatico do jogador pelo cenário.
     private void PlayerAutoMove()
     {
         this.transform.Translate(Vector3.right * speedPlayer * Time.deltaTime);
     }
-
 
     // Movimento horizontal do jogador através de 'Swipes' no touch.
     private void TouchMove()
@@ -50,20 +64,20 @@ public class PlayerAndroid : MonoBehaviour
 
                 if (touch.deltaPosition.x < 0)
                 {
-                    transform.Translate(new Vector3(0, 0, 1) * 2.5f * Time.deltaTime);
+                    transform.Translate(new Vector3(0, 0, 1) * 1f * Time.deltaTime);
                     moveX = true;
                     
                 }
                 else if (touch.deltaPosition.x > 0)
                 {
-                    transform.Translate(new Vector3(0, 0, -1) * 2.5f * Time.deltaTime);
+                    transform.Translate(new Vector3(0, 0, -1) * 1f * Time.deltaTime);
                     moveX = true;
                 }else
                 {
                     moveX = false;
                 }
 
-                if (touch.deltaPosition.y > 50 && canJump)
+                if (touch.deltaPosition.y > touch.deltaPosition.x && touch.deltaPosition.y >  50 && canJump)
                 {
                     PlayerJump();
 
@@ -77,7 +91,7 @@ public class PlayerAndroid : MonoBehaviour
             
         }
     }
-
+    // Pulo do jogador através de uma força aplicada nos eixos X e Y ao Rigidbody do jogador. Fazendo o saltar para e cair em forma de arco.
     private void PlayerJump()
     {
         
@@ -89,11 +103,14 @@ public class PlayerAndroid : MonoBehaviour
     }
    
 
+    // Cronometro responsavel por limitar a quantidade de pulos do jogador por segundo.
     IEnumerator PlayerCanJump()
     {
         yield return new WaitForSeconds(1f);
         canJump = true;
     }
+
+    // Faz o jogador pular obrigatoriamente ao chegar em uma aréa Trigger.
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Jump"))
