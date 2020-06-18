@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TreeEditor;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerAndroid : MonoBehaviour
 {
+    public GameObject explosion;
     public bool GameStart = false;
     [SerializeField]
     float speedPlayer = 0f;
@@ -17,11 +19,14 @@ public class PlayerAndroid : MonoBehaviour
     Rigidbody playerRigidbody;
     [SerializeField]
     Animator playerAnimator;
+    [SerializeField]
+    UIManager uiManager;
 
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimator = GetComponentInChildren<Animator>();
+        uiManager = GameObject.Find("Camera").GetComponent<UIManager>();
 
     }
     void Start()
@@ -133,6 +138,14 @@ public class PlayerAndroid : MonoBehaviour
         playerAnimator.SetBool("Roll_Anim", true);
     }
 
-  
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Point"))
+        {
+            uiManager.UpdateScore();
+            Instantiate(explosion, this.transform.position,Quaternion.identity);
+            Destroy(other.gameObject);
+        }
+    }
 
 }

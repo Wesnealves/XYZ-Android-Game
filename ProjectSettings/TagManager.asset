@@ -9,6 +9,7 @@ TagManager:
   - Background
   - teleport
   - Jump
+  - Point
   layers:
   - Default
   - TransparentFX

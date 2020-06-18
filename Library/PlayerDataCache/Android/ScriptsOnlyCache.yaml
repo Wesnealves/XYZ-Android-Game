@@ -21,7 +21,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateMachineInspector
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
@@ -102,11 +101,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13530}
     - Class: 114
-      Script: {instanceID: 13996}
+      Script: {instanceID: 13976}
     - Class: 114
-      Script: {instanceID: 14078}
+      Script: {instanceID: 13998}
     - Class: 114
-      Script: {instanceID: 24172}
+      Script: {instanceID: 14080}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -680,6 +679,12 @@ ScriptsOnlyBuild:
     className: AmbientOcclusion
   - hash:
       serializedVersion: 2
+      Hash: e59a717640413fb667b7510f3728fb85
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -756,12 +761,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: e59a717640413fb667b7510f3728fb85
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameManager
   platform: 13
   scenePathNames:
   - Assets/_Scenes/SampleScene.unity
