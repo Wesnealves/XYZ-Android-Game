@@ -6,9 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerAndroid : MonoBehaviour
 {
-
-    
-
+    public bool GameStart = false;
     [SerializeField]
     float speedPlayer = 0f;
     [SerializeField]
@@ -17,10 +15,13 @@ public class PlayerAndroid : MonoBehaviour
     bool moveX;
     Touch touch;
     Rigidbody playerRigidbody;
+    [SerializeField]
+    Animator playerAnimator;
 
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+        playerAnimator = GetComponentInChildren<Animator>();
 
     }
     void Start()
@@ -32,14 +33,11 @@ public class PlayerAndroid : MonoBehaviour
    
     void Update()
     {
+       
        PlayerAutoMove();
+ 
        TouchMove();
     }
-
-
-
-
-
 
 
     // ---------------------------------------------------------------------------------------------------------------------\
@@ -47,7 +45,10 @@ public class PlayerAndroid : MonoBehaviour
     // Movimento automatico do jogador pelo cenário.
     private void PlayerAutoMove()
     {
-        this.transform.Translate(Vector3.right * speedPlayer * Time.deltaTime);
+        if (GameStart)
+        {
+            this.transform.Translate(Vector3.right * speedPlayer * Time.deltaTime);
+        }
     }
 
     // Movimento horizontal do jogador através de 'Swipes' no touch.
@@ -56,6 +57,7 @@ public class PlayerAndroid : MonoBehaviour
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
+            playerAnimator.SetBool("Roll_Anim", true);
 
 
             // Move no eixo Z Direita && Esquerda
@@ -125,5 +127,12 @@ public class PlayerAndroid : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        this.GameStart = true;
+        playerAnimator.SetBool("Roll_Anim", true);
+    }
+
+  
 
 }
