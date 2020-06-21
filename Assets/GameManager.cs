@@ -16,10 +16,7 @@ public class GameManager : MonoBehaviour
         playerAnimator = GetComponentInChildren<Animator>();
         player = GetComponent<PlayerAndroid>();
     }
-    void Start()
-    {
-        
-    }
+   
 
     void Update()
     {

@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
-using TreeEditor;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerAndroid : MonoBehaviour
@@ -14,13 +15,20 @@ public class PlayerAndroid : MonoBehaviour
     [SerializeField]
     private float forceJump = 0f;
     bool canJump;
-    bool moveX;
+
     Touch touch;
+    [SerializeField]
+    InvisibleJoystick playerJoystick;
+    Vector3 dir;
+    
+
     Rigidbody playerRigidbody;
     [SerializeField]
     Animator playerAnimator;
     [SerializeField]
     UIManager uiManager;
+    [SerializeField]
+    private AudioSource musicBackground;
 
     private void Awake()
     {
@@ -32,16 +40,17 @@ public class PlayerAndroid : MonoBehaviour
     void Start()
     {
         canJump = true;
-        moveX = false;
+       
     }
 
    
     void Update()
     {
+
+      PlayerAutoMove();
        
-       PlayerAutoMove();
- 
-       TouchMove();
+      TouchMove();
+      MoveD();
     }
 
 
@@ -52,52 +61,26 @@ public class PlayerAndroid : MonoBehaviour
     {
         if (GameStart)
         {
-            this.transform.Translate(Vector3.right * speedPlayer * Time.deltaTime);
+            this.transform.Translate(Vector3.forward * speedPlayer * Time.deltaTime);
         }
     }
 
     // Movimento horizontal do jogador através de 'Swipes' no touch.
     private void TouchMove()
     {
-        if (Input.touchCount > 0)
-        {
-            touch = Input.GetTouch(0);
-            playerAnimator.SetBool("Roll_Anim", true);
+       transform.Translate(dir * speedPlayer * 1f * Time.deltaTime);
+        
+        
 
-
-            // Move no eixo Z Direita && Esquerda
-            if (touch.phase == TouchPhase.Moved)
-            {
-
-                if (touch.deltaPosition.x < 0)
-                {
-                    transform.Translate(new Vector3(0, 0, 1) * 1f * Time.deltaTime);
-                    moveX = true;
-                    
-                }
-                else if (touch.deltaPosition.x > 0)
-                {
-                    transform.Translate(new Vector3(0, 0, -1) * 1f * Time.deltaTime);
-                    moveX = true;
-                }else
-                {
-                    moveX = false;
-                }
-
-                if (touch.deltaPosition.y > touch.deltaPosition.x && touch.deltaPosition.y >  50 && canJump)
-                {
-                    PlayerJump();
-
-                }
-
-
-            }
-
-            
-
-            
-        }
     }
+    private void MoveD()
+    {
+        dir.x = playerJoystick.MovimentoHorizontal();
+        //dir.y = playerJoystick.MovimentoVertical();
+       
+    }
+
+
     // Pulo do jogador através de uma força aplicada nos eixos X e Y ao Rigidbody do jogador. Fazendo o saltar para e cair em forma de arco.
     private void PlayerJump()
     {
@@ -136,6 +119,8 @@ public class PlayerAndroid : MonoBehaviour
     {
         this.GameStart = true;
         playerAnimator.SetBool("Roll_Anim", true);
+        musicBackground.Play();
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -149,3 +134,8 @@ public class PlayerAndroid : MonoBehaviour
     }
 
 }
+
+
+
+// Move no eixo Z Direita && Esquerda
+/**/
