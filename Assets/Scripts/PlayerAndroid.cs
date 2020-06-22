@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 
 [RequireComponent(typeof(Rigidbody))]
@@ -11,10 +12,12 @@ public class PlayerAndroid : MonoBehaviour
     public GameObject explosion;
     public bool GameStart = false;
     [SerializeField]
-    float speedPlayer = 0f;
+    public float speedPlayer = 0f;
     [SerializeField]
     private float forceJump = 0f;
     bool canJump;
+    bool canMoveRight = true;
+    bool canMoveLeft = true;
 
     Touch touch;
     [SerializeField]
@@ -48,9 +51,9 @@ public class PlayerAndroid : MonoBehaviour
     {
 
       PlayerAutoMove();
-       
       TouchMove();
       MoveD();
+      PlayerJump();
     }
 
 
@@ -61,6 +64,7 @@ public class PlayerAndroid : MonoBehaviour
     {
         if (GameStart)
         {
+            
             this.transform.Translate(Vector3.forward * speedPlayer * Time.deltaTime);
         }
     }
@@ -68,9 +72,16 @@ public class PlayerAndroid : MonoBehaviour
     // Movimento horizontal do jogador através de 'Swipes' no touch.
     private void TouchMove()
     {
-       transform.Translate(dir * speedPlayer * 1f * Time.deltaTime);
+        if(dir.x > 0 && canMoveRight)
+        {
+            transform.Translate(dir * speedPlayer * 2f * Time.deltaTime, Camera.main.transform);
+        }else if (dir.x < 0 && canMoveLeft)
+        {
+            transform.Translate(dir * speedPlayer * 2f * Time.deltaTime, Camera.main.transform);
+        }
         
         
+       
 
     }
     private void MoveD()
@@ -85,9 +96,15 @@ public class PlayerAndroid : MonoBehaviour
     private void PlayerJump()
     {
         
-        playerRigidbody.AddForce(new Vector3(forceJump / 2, forceJump, 0) * forceJump);
-        canJump = false;
-        StartCoroutine(PlayerCanJump());
+        if(playerJoystick.Pulo() == true && canJump && playerJoystick.MovimentoVertical() >= 0.95f)
+        {
+            canJump = false;
+            StartCoroutine(PlayerCanJump());
+            this.playerRigidbody.AddForce(new Vector3(forceJump / 2, forceJump, 0) * forceJump);
+            
+        }
+        
+        
 
 
     }
@@ -115,11 +132,30 @@ public class PlayerAndroid : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Direita"))
+        {
+            canMoveRight = false;
+            canMoveLeft = true;
+        }else if (collision.gameObject.CompareTag("Esquerda"))
+        {
+            canMoveRight = true;
+            canMoveLeft = false;
+        }else if(!collision.gameObject.CompareTag("Esquerda") && !collision.gameObject.CompareTag("Direita"))
+        {
+            canMoveRight = true;
+            canMoveLeft = true;
+        }
+    }
+
     public void StartGame()
     {
         this.GameStart = true;
         playerAnimator.SetBool("Roll_Anim", true);
         musicBackground.Play();
+        
+        
         
     }
 
@@ -135,7 +171,3 @@ public class PlayerAndroid : MonoBehaviour
 
 }
 
-
-
-// Move no eixo Z Direita && Esquerda
-/**/

@@ -19,8 +19,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -90,24 +92,26 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12192}
     - Class: 114
-      Script: {instanceID: 12500}
+      Script: {instanceID: 12328}
     - Class: 114
-      Script: {instanceID: 12860}
+      Script: {instanceID: 12502}
     - Class: 114
-      Script: {instanceID: 13360}
+      Script: {instanceID: 12862}
     - Class: 114
-      Script: {instanceID: 13532}
+      Script: {instanceID: 13362}
     - Class: 114
-      Script: {instanceID: 13536}
+      Script: {instanceID: 13534}
     - Class: 114
-      Script: {instanceID: 13982}
+      Script: {instanceID: 13538}
     - Class: 114
-      Script: {instanceID: 14086}
+      Script: {instanceID: 13984}
     - Class: 114
-      Script: {instanceID: 72232}
+      Script: {instanceID: 14088}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 134
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -414,6 +418,12 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 5156a344d1b0e4eb6e5d27d5ded544ee
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InvisibleJoystick
+  - hash:
+      serializedVersion: 2
       Hash: 61b9d9b6f4b6a222dfea8b131b3d3227
     assemblyName: Unity.Postprocessing.Runtime.dll
     namespaceName: UnityEngine.Rendering.PostProcessing
@@ -630,7 +640,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: ff93bf80553baace188841ea8ffcb8f6
+      Hash: edc5e56f60b42e6ab1d27435e9239236
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraFollow
@@ -778,12 +788,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 5156a344d1b0e4eb6e5d27d5ded544ee
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: InvisibleJoystick
   platform: 13
   scenePathNames:
   - Assets/_Scenes/SampleScene.unity

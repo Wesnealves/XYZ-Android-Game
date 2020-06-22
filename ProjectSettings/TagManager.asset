@@ -11,6 +11,9 @@ TagManager:
   - Jump
   - Point
   - TuboEffect
+  - Lateral
+  - Esquerda
+  - Direita
   layers:
   - Default
   - TransparentFX

@@ -64,17 +64,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\InvisibleJoystick.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\DestroyPlayer.cs" />
     <Compile Include="Assets\Scripts\Destroyer.cs" />
     <Compile Include="Assets\Scripts\GroundPlataform.cs" />
+    <Compile Include="Assets\Scripts\InvisibleJoystick.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerAndroid.cs" />
     <Compile Include="Assets\Scripts\RotateCollectable.cs" />
     <Compile Include="Assets\Scripts\SpawnPlataform.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\chargeMaterial.cs" />
-    <Compile Include="Assets\UIManager.cs" />
     <Reference Include="UnityEngine">
       <HintPath>F:/wes/2019.3.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
